@@ -24,7 +24,7 @@ namespace DataTableSelectAll
             {
                 if (e.Column.ColumnName == selectedPropertyName)
                 {
-                    PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("IsSelected"));
+                    PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("SelectAll"));
                 }
             };
         }
@@ -44,15 +44,15 @@ namespace DataTableSelectAll
                         SortMemberPath = e.PropertyName // this is used to index into the DataRowView so it MUST be the property's name (for this implementation anyways)
                     };
                     e.Column = c;
-
                 }
             };
 
             dataGrid.DataContext = this;
+            
         }
 
 
-        public bool? IsSelected
+        public bool? SelectAll
         {
             get
             {
